@@ -3,6 +3,7 @@
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
+const { spawnSync } = require('child_process');
 
 const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 
@@ -47,6 +48,23 @@ function homedir(username)
 					else if(userPath == null)
 					{
 						throw new Error("bad /etc/passwd file format")
+					}
+					return userPath;
+				}
+			}
+			throw new Error("user does not exist");
+
+		case 'darwin':
+			var result = spawnSync('dscacheutil', ['-q', 'user', '-a', 'name', username]);
+			var output = result.stdout.toString().split("\n");
+			for(var line of output)
+			{
+				if(line.startsWith('dir:'))
+				{
+					var userPath = line.substring(4, line.length).trim();
+					if(userPath == '')
+					{
+						return null;
 					}
 					return userPath;
 				}
