@@ -25,11 +25,11 @@ function homedir(username)
 	{
 		default:
 			var userPath = username ? path.resolve(path.dirname(home), username) : home;
-			if(fs.existsSync(userPath))
+			if(!fs.existsSync(userPath))
 			{
-				return userPath;
+				throw new Error("user does not exist");
 			}
-			throw new Error("user does not exist");
+			return userPath;
 	}
 }
 
