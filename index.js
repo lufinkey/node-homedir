@@ -56,7 +56,9 @@ function homedir(username)
 
 		case 'darwin':
 			var result = spawnSync('dscacheutil', ['-q', 'user', '-a', 'name', username]);
+			// get lines from dscacheutil's stdout
 			var output = result.stdout.toString().split("\n");
+			// look for line that starts with "dir:" and return value
 			for(var line of output)
 			{
 				if(line.startsWith('dir:'))
@@ -80,4 +82,3 @@ function homedir(username)
 			return userPath;
 	}
 }
-
