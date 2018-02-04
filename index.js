@@ -61,9 +61,9 @@ function homedir(username)
 			// look for line that starts with "dir:" and return value
 			for(var line of output)
 			{
-				if(line.startsWith('dir:'))
+				if(line.startsWith('dir: '))
 				{
-					var userPath = line.substring(4, line.length).trim();
+					var userPath = line.substring(5, line.length);
 					if(userPath == '')
 					{
 						return null;
@@ -72,6 +72,32 @@ function homedir(username)
 				}
 			}
 			throw new Error("user does not exist");
+		
+		case 'win32':
+			var result = spawnSync('wmic', ['useraccount', 'where', 'name="'+username+'"', 'get', 'sid']);
+			var output = result.stdout.toString().split("\n");
+			for(var i=0; i<output.length; i++)
+			{
+				output[i] = output[i].trim();
+			}
+			if(output[0] != "SID" || output[1] == null)
+			{
+				throw new Error("user does not exist");
+			}
+			var sid = output[1];
+			if(sid == '')
+			{
+				throw new Error("unexpected output");
+			}
+			var regPath = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\'+sid;
+			result = spawnSync(__dirname+'\\win-reg-query.bat', [ regPath, "ProfileImagePath" ]);
+			var userPath = result.stdout.toString();
+			console.log(JSON.stringify(userPath));
+			if(userPath == null || userPath == "")
+			{
+				return null;
+			}
+			return userPath;
 
 		default:
 			var userPath = username ? path.resolve(path.dirname(home), username) : home;
