@@ -37,5 +37,5 @@ Shout out to all the useless modules out there that just provide the exact same 
 
 ## License
 
-  [MIT](LICENSE)
+  [MIT](LICENSE.md)
 
