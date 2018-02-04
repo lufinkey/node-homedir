@@ -1,4 +1,4 @@
-# homedir
+# userhomedir
 
  Platform agnostic user home directory path resolution for Node.js
   
@@ -7,24 +7,20 @@
 ## Install
 
 ```bash
-npm install --save https://github.com/lufinkey/node-homedir
+npm install --save userhomedir
 ```
 
 ## Usage
 
 ```javascript
-const homedir = require('homedir');
+const homedir = require('userhomedir');
 
 // find the home directory for user "luis" and store it in userPath
 var userPath = homedir('luis');
 console.log(userPath);
 ```
 
-The homedir function attempts to resolve the home directory of the given *case-sensitive* username. If the user does not exist, an exception is thrown. If the user exists, but does not have a home directory, null is returned. Upon success, a string containing the fully qualified path to the user's home directory is returned.
-
-## Installation
-
-    npm install homedir --save
+The homedir function attempts to resolve the home directory of the given (*case-sensitive*, except on Windows) username. If the user does not exist, an exception is thrown. If the user exists, but does not have a home directory, null is returned. Upon success, a string containing the fully qualified path to the user's home directory is returned.
 
 ## Thanks npm
 
