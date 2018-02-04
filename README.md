@@ -2,7 +2,7 @@
 
  Platform agnostic user home directory path resolution for Node.js
   
- While `os.userInfo().homedir` or `os.homedir` can give you the home directory for the current user, this module will give you the home directory for *any* user.
+ While `os.userInfo().homedir` or `os.homedir` can give you the home directory for the current user, this module will give you the home directory for *any* user, including system users.
 
 ## Install
 
