@@ -1,13 +1,8 @@
-// references
 
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
 const { spawnSync } = require('child_process');
-
-// exports
-
-module.exports = homedir;
 
 /**
  * Resolves the path to the user's home directory.
@@ -100,4 +95,11 @@ function homedir(username)
 		default:
 			throw new Error("unsupported platform");
 	}
+}
+
+
+// export functions
+
+module.exports = {
+	homedir: homedir
 }
