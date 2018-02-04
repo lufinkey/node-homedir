@@ -15,9 +15,13 @@ npm install --save userhomepath
 ```javascript
 const { homedir } = require('userhomepath');
 
-// find the home directory for user "luis" and log it to the console
+// find the home directory for user "luis", and log it to the console
 homedir('luis').then(userPath) {
+	// success
 	console.log(userPath);
+}).catch(error) {
+	// error
+	console.error("error: "+error.message);
 });
 ```
 
