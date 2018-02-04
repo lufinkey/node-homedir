@@ -1,6 +1,6 @@
 {
-  "name": "userhomedir",
-  "version": "1.0",
+  "name": "userhomepath",
+  "version": "1.0.0",
   "description": "Platform agnostic user home directory path resolution for Node.js.",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lufinkey/node-userhomedir.git"
+    "url": "https://github.com/lufinkey/node-userhomepath.git"
   },
   "author": "lufinkey",
   "license": "MIT"
