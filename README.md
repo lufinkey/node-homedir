@@ -1,50 +1,45 @@
 # homedir
 
-[![Build Status](http://img.shields.io/travis/wilmoore/node-homedir.svg)](https://travis-ci.org/wilmoore/node-homedir) [![NPM version](http://img.shields.io/npm/v/homedir.svg)](https://www.npmjs.org/package/homedir) [![NPM downloads](http://img.shields.io/npm/dm/homedir.svg)](https://www.npmjs.org/package/homedir) [![LICENSE](http://img.shields.io/npm/l/homedir.svg)](license)
+ Platform agnostic user home directory path resolution for Node.js
+  
+ While `os.userInfo().homedir` or `os.homedir` can give you the home directory for the current user, this module will give you the home directory for *any* user.
 
-  Platform agnostic user home directory path resolution (i.e. `man 5 passwd`) for [Node.js][].
+## Install
 
-> The user's home directory. This is the full path name where the user will be placed on login.
+```bash
+npm install --save https://github.com/lufinkey/node-homedir
+```
 
-#### OSX
+## Usage
 
-    homedir();
-    #=> /Users/wilmoore
+```javascript
+const homedir = require('homedir');
 
-    homedir('Guest');
-    #=> /Users/Guest
+// find the home directory for user "luis" and store it in userPath
+var userPath = homedir('luis');
+console.log(userPath);
+```
 
-#### Windows
-
-    homedir();
-    #=> C:\Users\wilmoore
-
-    homedir('Public');
-    #=> C:\Users\Public
-
-#### Linux
-
-    homedir();
-    #=> /home/wilmoore
-
-    homedir('guest');
-    #=> /home/guest
+The homedir function attempts to resolve the home directory of the given *case-sensitive* username. If the user does not exist, an exception is thrown. If the user exists, but does not have a home directory, null is returned. Upon success, a string containing the fully qualified path to the user's home directory is returned.
 
 ## Installation
 
     npm install homedir --save
 
-## Alternatives
+## Thanks npm
 
-- [userhome][]
-- [home-dir][]
+Shout out to all the useless modules out there that just provide the exact same functionality as `os.userInfo().homedir`
 
+- [userhome](https://www.npmjs.org/package/userhome)
+- [home-dir](https://www.npmjs.org/package/home-dir)
+- [homepath](https://www.npmjs.com/package/homepath)
+- [user-home](https://www.npmjs.com/package/user-home)
+- [home-path](https://www.npmjs.com/package/home-path)
+- [home](https://www.npmjs.com/package/home)
+
+...and sooo many more
 
 ## License
 
   [MIT](LICENSE)
-
-[userhome]: https://www.npmjs.org/package/userhome
-[home-dir]: https://www.npmjs.org/package/home-dir
-[Node.js]:  http://nodejs.org
 
