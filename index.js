@@ -102,4 +102,4 @@ function homedir(username)
 
 module.exports = {
 	homedir: homedir
-}
+};
