@@ -15,12 +15,17 @@ npm install --save userhomepath
 ```javascript
 const { homedir } = require('userhomepath');
 
-// find the home directory for user "luis" and store it in userPath
-var userPath = homedir('luis');
-console.log(userPath);
+// find the home directory for user "luis" and log it to the console
+homedir('luis').then(userPath) {
+	console.log(userPath);
+});
 ```
 
-The homedir function attempts to resolve the home directory of the given (*case-sensitive*, except on Windows) username. If the user does not exist, an exception is thrown. If the user exists, but does not have a home directory, null is returned. Upon success, a string containing the fully qualified path to the user's home directory is returned.
+The **homedir** function attempts to resolve the home directory of the given (*case-sensitive*, except on Windows) username.
+A **homedirSync** function is also provided, which blocks until the function finishes.
+If the user does not exist, or if the operation couldn't be completed, an exception is thrown.
+If the user exists, but does not have a home directory, null is returned.
+Upon success, a string containing the fully qualified path to the user's home directory is returned.
 
 ## Thanks npm
 

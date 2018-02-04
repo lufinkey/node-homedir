@@ -7,13 +7,16 @@ const { spawnSync } = require('child_process');
 /**
  * Resolves the path to the user's home directory.
  *
- * @param {String} [username]
- * Username of user whose path you seek.
+ * @function homedirSync
+ *
+ * @param {String} username - Username of user whose path you seek.
+ *
+ * @throws {Error} if the user does not exist, or the operation couldn't be completed
  *
  * @return {String}
- * The full path to the user's home directory.
+ * The full path to the user's home directory, or null if the user has no home directory.
  */
-function homedir(username)
+function homedirSync(username)
 {
 	switch(os.platform())
 	{
@@ -96,9 +99,28 @@ function homedir(username)
 	}
 }
 
+/**
+ * Resolves the path to the user's home directory.
+ *
+ * @async
+ * @function homedir
+ *
+ * @param {String} username - Username of user whose path you seek.
+ *
+ * @throws {Error} if the user does not exist, or the operation couldn't be completed
+ *
+ * @return {String}
+ * The full path to the user's home directory, or null if the user has no home directory.
+ */
+async function homedir(username)
+{
+	return homedirSync(username);
+}
+
 
 // export functions
 
 module.exports = {
-	homedir: homedir
+	homedir: homedir,
+	homedirSync: homedirSync
 };
