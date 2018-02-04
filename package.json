@@ -4,7 +4,7 @@
   "description": "Platform agnostic user home directory path resolution for Node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "userhome",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lufinkey/node-homedir.git"
+    "url": "https://github.com/lufinkey/node-userhomedir.git"
   },
   "author": "lufinkey",
   "license": "MIT"
