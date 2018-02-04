@@ -5,8 +5,6 @@ const os = require('os');
 const fs = require('fs');
 const { spawnSync } = require('child_process');
 
-const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
-
 // exports
 
 module.exports = homedir;
