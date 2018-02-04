@@ -31,6 +31,15 @@ If the user does not exist, or if the operation couldn't be completed, an except
 If the user exists, but does not have a home directory, null is returned.
 Upon success, a string containing the fully qualified path to the user's home directory is returned.
 
+### CLI
+
+For testing purposes, I also included a cli:
+
+```bash
+# find the home directory for user "luis"
+userhomepath luis
+```
+
 ## Thanks npm
 
 Shout out to all the useless modules out there that just provide the exact same functionality as `os.userInfo().homedir`
