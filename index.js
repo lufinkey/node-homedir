@@ -13,8 +13,7 @@ const { spawnSync } = require('child_process');
  *
  * @throws {Error} if the user does not exist, or the operation couldn't be completed
  *
- * @return {String}
- * The full path to the user's home directory, or null if the user has no home directory.
+ * @returns {String} The full path to the user's home directory, or null if the user has no home directory.
  */
 function homedirSync(username)
 {
@@ -109,8 +108,7 @@ function homedirSync(username)
  *
  * @throws {Error} if the user does not exist, or the operation couldn't be completed
  *
- * @return {String}
- * The full path to the user's home directory, or null if the user has no home directory.
+ * @returns {String} The full path to the user's home directory, or null if the user has no home directory.
  */
 async function homedir(username)
 {
