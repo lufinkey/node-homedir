@@ -85,7 +85,6 @@ function homedir(username)
 			var regPath = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\'+sid;
 			result = spawnSync(__dirname+'\\win-reg-query.bat', [ regPath, "ProfileImagePath" ]);
 			var userPath = result.stdout.toString();
-			console.log(JSON.stringify(userPath));
 			if(userPath == null || userPath == "")
 			{
 				return null;
