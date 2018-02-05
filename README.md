@@ -40,19 +40,6 @@ For testing purposes, I also included a cli:
 userhomepath luis
 ```
 
-## Thanks npm
-
-Shout out to all the useless modules out there that just provide the exact same functionality as `os.userInfo().homedir`
-
-- [userhome](https://www.npmjs.org/package/userhome)
-- [home-dir](https://www.npmjs.org/package/home-dir)
-- [homepath](https://www.npmjs.com/package/homepath)
-- [user-home](https://www.npmjs.com/package/user-home)
-- [home-path](https://www.npmjs.com/package/home-path)
-- [home](https://www.npmjs.com/package/home)
-
-...and sooo many more
-
 ## License
 
   [MIT](LICENSE.md)
