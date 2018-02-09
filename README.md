@@ -27,7 +27,7 @@ homedir('luis').then(userPath) {
 
 The **homedir** function attempts to resolve the home directory of the given (*case-sensitive*, except on Windows) username.
 A **homedirSync** function is also provided, which blocks until the function finishes.
-If the user does not exist, or an anomaly occurs (missing `/etc/passwd` file, expected command output changed, etc), an exception is thrown.
+If the user does not exist, or an anomaly occurs (missing an expected OS file, expected command output is different, etc), an exception is thrown.
 If the user exists, but does not have a home directory, null is returned.
 Upon success, a string containing the fully qualified path to the user's home directory is returned.
 
